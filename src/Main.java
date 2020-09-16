@@ -31,6 +31,12 @@ class Main {
 
         monster1.display();
         monster2.display();
-        monster3.display();
+        // monster3.display();
+
+        System.out.println("--- 攻撃！ 1 -> 2 ---\n");
+        monster1.attack(0, monster2);
+
+        monster1.display();
+        monster2.display();
     }
 }

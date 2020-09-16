@@ -2,7 +2,8 @@ public class Skill {
     private String name;
     private Type type;
     private int power;
-    private int pp;
+    private int maxPP;
+    private int currentPP;
 
     private Skill () {}
 
@@ -10,12 +11,21 @@ public class Skill {
         this.name = name;
         this.type = type;
         this.power = power;
-        this.pp = pp;
+        this.maxPP = this.currentPP = pp;
+    }
+
+    public int getDamage() {
+        if (this.currentPP > 0) {
+            this.currentPP--;
+            return this.power;
+        } else {
+            return 0;
+        }
     }
 
     @Override
     public String toString() {
-        return String.format("%s(%s/%d/%d)", this.name, this.type, this.power, this.pp);
+        return String.format("%s(%s, %d, (%d/%d))", this.name, this.type, this.power, this.currentPP, this.maxPP);
     }
 
     public static Skill fireAttack = new Skill("火を吐く", Type.Fire, 40, 5);
