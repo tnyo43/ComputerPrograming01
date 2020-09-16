@@ -4,9 +4,9 @@ class Main {
             "ナンデヤ根",
             Type.Hurricane,
             new Skill[] {
-                new Skill("疾風パンチ", Type.Hurricane, 10, 30),
-                new Skill("ボコボコキック", Type.Dark, 30, 10),
-                new Skill("かまいたちエルボー", Type.Hurricane, 20, 20)
+                Skill.hurricaneAttack,
+                Skill.kickKickKick,
+                Skill.hurricaneElbow
             },
             100
         );
@@ -14,8 +14,8 @@ class Main {
             "ヒト陽炎",
             Type.Fire,
             new Skill[] {
-                new Skill("火を吐く", Type.Fire, 40, 5),
-                new Skill("灼熱フィスト", Type.Fire, 30, 20),
+                Skill.fireAttack,
+                Skill.heatFist
             },
             150
         );
@@ -23,8 +23,8 @@ class Main {
             "カネカメ",
             Type.Water,
             new Skill[] {
-                new Skill("みずふんしゃ", Type.Water, 1, 10),
-                new Skill("乱反射", Type.Holy, 100, 1)
+                Skill.waterAttack,
+                Skill.reflection
             },
             130
         );

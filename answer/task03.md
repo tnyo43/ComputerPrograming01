@@ -48,7 +48,7 @@ public class Monster {
     public void display() {
         String skillStr = this.skills[0].toString();
         for (int i = 1; i < this.skills.length; i++) {
-            skillStr += ", " + this.skills[1];
+            skillStr += ", " + this.skills[i];
         }
 
         System.out.println(String.format("名前：%s", this.name));
