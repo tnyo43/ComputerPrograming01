@@ -1,12 +1,12 @@
 public class Monster {
     private String name;
-    private String type;
+    private Type type;
     private String skills[];
     private int hp;
 
     private Monster() {}
 
-    public Monster(String name, String type, String skills[], int hp) {
+    public Monster(String name, Type type, String skills[], int hp) {
         this.name = name;
         this.type = type;
         this.skills = skills;
