@@ -162,4 +162,7 @@ HP：(140/150)
 - 最大値を管理するために、`Monster class`の`hp`、`Skill class`の`pp`をそれぞれ`current〇〇`、`max〇〇`で管理
 - `getDamage`は技のすごさを返す
     - `currentPP`が1以上かどうかで分岐、デクリメントを忘れない
+    - ゲームの対戦システムを扱うクラスから呼び出されることが想定されるので`public`
 - `attack`は`Skill#getDamage`でダメージを計算したあとに`other`の`currentHP`を減らす
+    - ゲームの対戦システムを扱うクラスから呼び出されることが想定されるので`public`
+- 攻撃した側のPPが減り、攻撃された側のHPが減っていることを確認
