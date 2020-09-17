@@ -1,3 +1,5 @@
+package monster;
+
 public enum Type {
     Fire, Water, Hurricane, Holy, Dark;
 

@@ -1,11 +1,13 @@
+package monster;
+
 public class Monster {
     private String name;
-    public Type type;
+    protected Type type;
     private Skill skills[];
     private int maxHP;
     private int currentHP;
-    public int ap;
-    public int bp;
+    protected int ap;
+    protected int bp;
 
     private Monster() {}
 

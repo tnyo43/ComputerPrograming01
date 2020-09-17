@@ -1,3 +1,5 @@
+package monster;
+
 public class Skill {
     private String name;
     private Type type;
@@ -65,7 +67,7 @@ public class Skill {
         return MAG_MIDDLE;
     }
 
-    public int getDamage(Monster attacker, Monster other) {
+    protected int getDamage(Monster attacker, Monster other) {
         if (this.currentPP > 0) {
             this.currentPP--;
             double damage = 1.0 * this.power * this.getTypeMagnification(other.type) * attacker.ap / other.bp;
