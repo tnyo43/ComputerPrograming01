@@ -1,3 +1,10 @@
+# 課題09
+
+## 模範解答
+
+`monster/Skill.java`
+
+```java
 package monster;
 
 import java.util.HashMap;
@@ -31,30 +38,26 @@ public class Skill {
         }
     }
 
-    // magnificationMapの初期化のための補助関数
-    private void addMagnification(Type type1, Type type2, double mag) {
-        magnificationMap.put(new Pair<Type, Type>(type1, type2), mag);
-    }
-
     private void initMagnificationMap() {
         magnificationMap = new HashMap<Pair<Type, Type>, Double>();
         // 火の攻撃
-        addMagnification(Type.Fire, Type.Water, MAG_SMALL);
-        addMagnification(Type.Fire, Type.Hurricane, MAG_LARGE);
+        magnificationMap.put(new Pair<Type, Type>(Type.Fire, Type.Water), MAG_SMALL);
+        magnificationMap.put(new Pair<Type, Type>(Type.Fire, Type.Hurricane), MAG_LARGE);
         // 水の攻撃
-        addMagnification(Type.Water, Type.Hurricane, MAG_SMALL);
-        addMagnification(Type.Water, Type.Fire, MAG_LARGE);
+        magnificationMap.put(new Pair<Type, Type>(Type.Water, Type.Hurricane), MAG_SMALL);
+        magnificationMap.put(new Pair<Type, Type>(Type.Water, Type.Fire), MAG_LARGE);
         // 風の攻撃
-        addMagnification(Type.Hurricane, Type.Fire, MAG_SMALL);
-        addMagnification(Type.Hurricane, Type.Water, MAG_LARGE);
+        magnificationMap.put(new Pair<Type, Type>(Type.Hurricane, Type.Fire), MAG_SMALL);
+        magnificationMap.put(new Pair<Type, Type>(Type.Hurricane, Type.Water), MAG_LARGE);
         // 光の攻撃
-        addMagnification(Type.Holy, Type.Dark, MAG_LARGE);
+        magnificationMap.put(new Pair<Type, Type>(Type.Holy, Type.Dark), MAG_LARGE);
         // 闇の攻撃
-        addMagnification(Type.Dark, Type.Holy, MAG_LARGE);
+        magnificationMap.put(new Pair<Type, Type>(Type.Dark, Type.Holy), MAG_LARGE);
     }
 
     private double getTypeMagnification(Type type) {
         Pair<Type, Type> key = new Pair<Type, Type>(this.type, type);
+
         if (magnificationMap.containsKey(key)) {
             return magnificationMap.get(key);
         } else {
@@ -95,3 +98,26 @@ public class Skill {
         new Skill("乱反射", Type.Holy, 100, 1)
     };
 }
+```
+
+## 考察課題模範解答
+
+Q. なぜ`magnificationMap`は`static`なのか
+
+A. タイプの相性はゲーム全体で固定なので、初期化した以降変更は加えられず、全てのケースで同じものを参照することになるから
+
+Q. なぜ`Map`で実装しないのか
+
+A. `Map`は`interface`だから。対して、`HashMap`は`Map`の具体的な実装を行っている
+
+Q. コードがどのように読みやすくなったら考えてみましょう
+
+A. 「相性についての情報が一行で得られる」「ネストが浅くなった」。ただし、「実行時の速度低下」「意図しない上書きが発生しうる」などのデメリットもある
+
+- 
+- 
+
+## ポイント
+
+- `magnificationMap`の初期化は1回になるようにコンストラクタで制御
+    - 制御しないと、コンストラクタが呼ばれる旅に`magnificationMap`を作り直すことになる
