@@ -35,7 +35,25 @@ public class Monster {
     }
 
     public void attack(int skillIndex, Monster other) {
-        int damage = this.skills[skillIndex].getDamage(this, other);
+        Skill skill = this.skills[skillIndex];
+        System.out.println(String.format("『%s』を使った！", skill.getName()));
+        int damage = skill.getDamage(this, other);
         other.currentHP = Math.max(0, other.currentHP - damage);
+    }
+
+    public boolean canFight() {
+        return this.currentHP > 0;
+    }
+
+	public Object getName() {
+		return this.name;
+    }
+    
+    public String skillListString() {
+        String str = String.format("1. %s", this.skills[0]);
+        for (int i = 1; i < this.skills.length; i++) {
+            str += String.format(", %d. %s", (i+1), this.skills[i]);
+        }
+        return str;
     }
 }

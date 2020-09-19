@@ -94,4 +94,8 @@ public class Skill {
         new Skill("ボコボコキック", Type.Dark, 30, 10),
         new Skill("乱反射", Type.Holy, 100, 1)
     };
+
+	public String getName() {
+		return this.name;
+	}
 }

@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 import monster.*;
 
 class Main {
@@ -15,30 +17,51 @@ class Main {
             "ヒト陽炎",
             Type.Fire,
             new Skill[] {
-                Skill.get(0)
-            },
-            150, 70, 40
-        );
-        Monster monster3 = new Monster(
-            "カネカメ",
-            Type.Water,
-            new Skill[] {
-                Skill.get(2)
+                Skill.get(0),
+                Skill.get(1)
             },
             150, 70, 40
         );
 
         monster1.display();
         monster2.display();
-        monster3.display();
 
-        System.out.println("--- 攻撃！ 1 -> 2 ---\n");
-        monster1.attack(0, monster2);
-        System.out.println("--- 攻撃！ 1 -> 3 ---\n");
-        monster1.attack(0, monster3);
+        System.out.println("========== 対戦スタート！ ==========");
 
-        monster1.display();
-        monster2.display();
-        monster3.display();
+        boolean turnMonster1 = true;
+        Scanner scanner = new Scanner(System.in);
+
+        while(monster1.canFight() && monster2.canFight()) {
+            Monster attacker = turnMonster1 ? monster1 : monster2;
+            Monster defender = turnMonster1 ? monster2 : monster1;
+            System.out.println(String.format("--- 攻撃！ %s -> %s ---\n", attacker.getName(), defender.getName()));
+
+            System.out.println("技を選択してください");
+            System.out.println("技リスト");
+            System.out.println(attacker.skillListString());
+            
+            while (true) {
+                String txt = scanner.nextLine();
+                try {
+                    int index = Integer.parseInt(txt);
+                    attacker.attack(index-1, defender);
+                    break;
+                } catch (Exception e) {
+                    System.out.println("もう一度入力してください");
+                }
+            }
+
+            System.out.println("=========== 現在の状態 =========== ");
+            monster1.display();
+            monster2.display();
+            System.out.println("================================== ");
+
+            turnMonster1 ^= true;
+        }
+
+        Monster winner = monster1.canFight() ? monster1 : monster2;
+        System.out.println(String.format("%sの勝利！", winner.getName()));
+
+        scanner.close();
     }
 }
