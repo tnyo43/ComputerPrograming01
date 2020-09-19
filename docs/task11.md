@@ -25,6 +25,10 @@ public abstract class Skill {
         return s.copy();
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public abstract void run(Monster attacker, Monster other);
 
     public abstract Skill copy();
@@ -40,7 +44,7 @@ public abstract class Skill {
         new AttackSkill("ボコボコキック", Type.Dark, 30, 10),
         new AttackSkill("乱反射", Type.Holy, 100, 1),
 
-        // あたらしく追加した回復の技
+        // あたらしく追加した回復の技（引数は先頭から順番に、技の名前、HPの回復量、PP）
         new SpecialSkill("ひとやすみ", 20, 10)
     };
 }
@@ -67,4 +71,4 @@ public abstract class Skill {
 
 ## 考察課題
 
-- `Skill class`を継承させることで2種類の技を定義しました。なぜ継承を行ったのでしょうか。
+- `Skill class`を継承させることで2種類の技を定義しました。なぜ継承を行ったのでしょうか。`Skill class`の配列`skills`に`AttackSkill class`と`SpecialSkill class`の両方のオブジェクトが含まれていることを参考にして考えましょう

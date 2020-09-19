@@ -9,7 +9,8 @@ class Main {
             Type.Hurricane,
             new Skill[] {
                 Skill.get(3),
-                Skill.get(4)
+                Skill.get(4),
+                Skill.get(7)
             },
             100, 60, 90
         );
@@ -18,7 +19,8 @@ class Main {
             Type.Fire,
             new Skill[] {
                 Skill.get(0),
-                Skill.get(1)
+                Skill.get(1),
+                Skill.get(7)
             },
             150, 70, 40
         );
@@ -44,7 +46,7 @@ class Main {
                 String txt = scanner.nextLine();
                 try {
                     int index = Integer.parseInt(txt);
-                    attacker.attack(index-1, defender);
+                    attacker.run(index-1, defender);
                     break;
                 } catch (Exception e) {
                     System.out.println("もう一度入力してください");

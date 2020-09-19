@@ -34,13 +34,17 @@ public class Monster {
         System.out.println();
     }
 
-    public void attack(int skillIndex, Monster other) {
-        Skill skill = this.skills[skillIndex];
-        System.out.println(String.format("『%s』を使った！", skill.getName()));
-        int damage = skill.getDamage(this, other);
-        other.currentHP = Math.max(0, other.currentHP - damage);
+    public void run(int skillIndex, Monster other) {
+        this.skills[skillIndex].run(this, other);
     }
 
+	protected void damaged(int damage) {
+        this.currentHP = Math.max(0, this.currentHP - damage);
+	}
+
+	public void recover(int recoverHP) {
+        this.currentHP = Math.min(this.maxHP, this.currentHP + recoverHP);
+	}
     public boolean canFight() {
         return this.currentHP > 0;
     }
