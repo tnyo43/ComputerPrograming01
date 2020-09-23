@@ -10,7 +10,8 @@ class Main {
             new Skill[] {
                 Skill.get(3),
                 Skill.get(4),
-                Skill.get(7)
+                Skill.get(7),
+                Skill.get(8)
             },
             100, 60, 90
         );
@@ -20,7 +21,8 @@ class Main {
             new Skill[] {
                 Skill.get(0),
                 Skill.get(1),
-                Skill.get(7)
+                Skill.get(7),
+                Skill.get(10)
             },
             150, 70, 40
         );

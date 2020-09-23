@@ -71,7 +71,7 @@ public class AttackSkill extends Skill {
     private int getDamage(Monster attacker, Monster other) {
         if (this.currentPP > 0) {
             this.currentPP--;
-            double damage = 1.0 * this.power * this.getTypeMagnification(other.type) * attacker.ap / other.bp;
+            double damage = 1.0 * this.power * this.getTypeMagnification(other.type) * attacker.getAP() / other.getBP();
             return (int)damage;
         } else {
             return 0;
