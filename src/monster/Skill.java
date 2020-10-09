@@ -1,5 +1,7 @@
 package monster;
 
+import util.Pair;
+
 public abstract class Skill {
     protected String name;
     protected int maxPP;
@@ -10,13 +12,9 @@ public abstract class Skill {
         return s.copy();
     }
 
-    public String getName() {
-        return this.name;
-    }
+    protected abstract void run(Monster attacker, Monster other);
 
-    public abstract void run(Monster attacker, Monster other);
-
-    public abstract Skill copy();
+    protected abstract Skill copy();
 
     public abstract String toString();
 
@@ -29,7 +27,10 @@ public abstract class Skill {
         new AttackSkill("ボコボコキック", Type.DARK, 30, 10),
         new AttackSkill("乱反射", Type.HOLY, 100, 1),
 
-        // あたらしく追加した回復の技（引数は先頭から順番に、技の名前、HPの回復量、PP）
-        new SpecialSkill("ひとやすみ", 20, 10)
+        new SpecialSkill("ひとやすみ", 20, new Pair<Integer, Integer>(0, 0), new Pair<Integer, Integer>(0, 0), 10),
+        new SpecialSkill("エイエイオー", 0, new Pair<Integer, Integer>(1, 0), new Pair<Integer, Integer>(0, 0), 15),
+        new SpecialSkill("防御体制", 0, new Pair<Integer, Integer>(0, 2), new Pair<Integer, Integer>(0, 0), 12),
+        new SpecialSkill("こちょこちょ", 0, new Pair<Integer, Integer>(0, 0), new Pair<Integer, Integer>(-2, 0), 7),
+        new SpecialSkill("溶かす", 0, new Pair<Integer, Integer>(0, 0), new Pair<Integer, Integer>(0, -1), 9),
     };
 }
