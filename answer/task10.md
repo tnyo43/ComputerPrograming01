@@ -69,7 +69,7 @@ class Main {
     public static void main(String args[]) {
         Monster monster1 = new Monster(
             "ナンデヤ根",
-            Type.Hurricane,
+            Type.HURRICANE,
             new Skill[] {
                 Skill.get(3),
                 Skill.get(4)
@@ -78,7 +78,7 @@ class Main {
         );
         Monster monster2 = new Monster(
             "ヒト陽炎",
-            Type.Fire,
+            Type.FIRE,
             new Skill[] {
                 Skill.get(0),
                 Skill.get(1)

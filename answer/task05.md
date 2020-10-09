@@ -35,13 +35,13 @@ public class Skill {
         return String.format("%s(%s, %d, (%d/%d))", this.name, this.type, this.power, this.currentPP, this.maxPP);
     }
 
-    public static Skill fireAttack = new Skill("火を吐く", Type.Fire, 40, 5);
-    public static Skill heatFist = new Skill("灼熱フィスト", Type.Fire, 30, 20);
-    public static Skill waterAttack = new Skill("みずふんしゃ", Type.Water, 1, 10);
-    public static Skill hurricaneAttack = new Skill("疾風パンチ", Type.Hurricane, 10, 30);
-    public static Skill hurricaneElbow = new Skill("かまいたちエルボー", Type.Hurricane, 20, 20);
-    public static Skill kickKickKick = new Skill("ボコボコキック", Type.Dark, 30, 10);
-    public static Skill reflection = new Skill("乱反射", Type.Holy, 100, 1);
+    public static Skill fireAttack = new Skill("火を吐く", Type.FIRE, 40, 5);
+    public static Skill heatFist = new Skill("灼熱フィスト", Type.FIRE, 30, 20);
+    public static Skill waterAttack = new Skill("みずふんしゃ", Type.WATER, 1, 10);
+    public static Skill hurricaneAttack = new Skill("疾風パンチ", Type.HURRICANE, 10, 30);
+    public static Skill hurricaneElbow = new Skill("かまいたちエルボー", Type.HURRICANE, 20, 20);
+    public static Skill kickKickKick = new Skill("ボコボコキック", Type.DARK, 30, 10);
+    public static Skill reflection = new Skill("乱反射", Type.HOLY, 100, 1);
 }
 ```
 
@@ -91,7 +91,7 @@ class Main {
     public static void main(String args[]) {
         Monster monster1 = new Monster(
             "ナンデヤ根",
-            Type.Hurricane,
+            Type.HURRICANE,
             new Skill[] {
                 Skill.hurricaneAttack,
                 Skill.kickKickKick,
@@ -101,7 +101,7 @@ class Main {
         );
         Monster monster2 = new Monster(
             "ヒト陽炎",
-            Type.Fire,
+            Type.FIRE,
             new Skill[] {
                 Skill.fireAttack,
                 Skill.heatFist
@@ -110,7 +110,7 @@ class Main {
         );
         Monster monster3 = new Monster(
             "カネカメ",
-            Type.Water,
+            Type.WATER,
             new Skill[] {
                 Skill.waterAttack,
                 Skill.reflection

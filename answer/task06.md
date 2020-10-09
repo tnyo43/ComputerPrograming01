@@ -41,13 +41,13 @@ public class Skill {
     }
 
     private static Skill skills[] = {
-        new Skill("火を吐く", Type.Fire, 40, 5),
-        new Skill("灼熱フィスト", Type.Fire, 30, 20),
-        new Skill("みずふんしゃ", Type.Water, 1, 10),
-        new Skill("疾風パンチ", Type.Hurricane, 10, 30),
-        new Skill("かまいたちエルボー", Type.Hurricane, 20, 20),
-        new Skill("ボコボコキック", Type.Dark, 30, 10),
-        new Skill("乱反射", Type.Holy, 100, 1)
+        new Skill("火を吐く", Type.FIRE, 40, 5),
+        new Skill("灼熱フィスト", Type.FIRE, 30, 20),
+        new Skill("みずふんしゃ", Type.WATER, 1, 10),
+        new Skill("疾風パンチ", Type.HURRICANE, 10, 30),
+        new Skill("かまいたちエルボー", Type.HURRICANE, 20, 20),
+        new Skill("ボコボコキック", Type.DARK, 30, 10),
+        new Skill("乱反射", Type.HOLY, 100, 1)
     };
 }
 ```
@@ -59,7 +59,7 @@ class Main {
     public static void main(String args[]) {
         Monster monster1 = new Monster(
             "ナンデヤ根",
-            Type.Hurricane,
+            Type.HURRICANE,
             new Skill[] {
                 Skill.get(5)
             },
@@ -67,7 +67,7 @@ class Main {
         );
         Monster monster2 = new Monster(
             "ヒト陽炎",
-            Type.Fire,
+            Type.FIRE,
             new Skill[] {
                 Skill.get(5)
             },

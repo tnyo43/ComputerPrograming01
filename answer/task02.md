@@ -6,20 +6,20 @@
 
 ```java
 public enum Type {
-    Fire, Water, Hurricane, Holy, Dark;
+    FIRE, WATER, HURRICANE, HOLY, DARK;
 
     @Override
     public String toString() {
         switch (this) {
-            case Fire:
+            case FIRE:
                 return "火";
-            case Water:
+            case WATER:
                 return "水";
-            case Hurricane:
+            case HURRICANE:
                 return "風";
-            case Holy:
+            case HOLY:
                 return "光";
-            case Dark:
+            case DARK:
                 return "闇";
         }
         return "";
@@ -62,9 +62,9 @@ public class Monster {
 ```java
 class Main {
     public static void main(String args[]) {
-        Monster monster1 = new Monster("ナンデヤ根", Type.Hurricane, new String[] {"パンチ", "キック", "エルボー"}, 100);
-        Monster monster2 = new Monster("ヒト陽炎", Type.Fire, new String[] {"火を吐く"}, 150);
-        Monster monster3 = new Monster("カネカメ", Type.Water, new String[] {"みずふんしゃ"}, 130);
+        Monster monster1 = new Monster("ナンデヤ根", Type.HURRICANE, new String[] {"パンチ", "キック", "エルボー"}, 100);
+        Monster monster2 = new Monster("ヒト陽炎", Type.FIRE, new String[] {"火を吐く"}, 150);
+        Monster monster3 = new Monster("カネカメ", Type.WATER, new String[] {"みずふんしゃ"}, 130);
 
         monster1.display();
         monster2.display();

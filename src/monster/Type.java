@@ -1,22 +1,23 @@
 package monster;
 
 public enum Type {
-    Fire, Water, Hurricane, Holy, Dark;
+    FIRE, WATER, HURRICANE, HOLY, DARK;
 
     @Override
     public String toString() {
         switch (this) {
-            case Fire:
+            case FIRE:
                 return "火";
-            case Water:
+            case WATER:
                 return "水";
-            case Hurricane:
+            case HURRICANE:
                 return "風";
-            case Holy:
+            case HOLY:
                 return "光";
-            case Dark:
+            case DARK:
                 return "闇";
+            default:
+                return "";
         }
-        return "";
     }
 }

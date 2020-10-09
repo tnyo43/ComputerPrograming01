@@ -43,18 +43,18 @@ public class AttackSkill extends Skill {
     private void initMagnificationMap() {
         magnificationMap = new HashMap<Pair<Type, Type>, Double>();
         // 火の攻撃
-        addMagnification(Type.Fire, Type.Water, MAG_SMALL);
-        addMagnification(Type.Fire, Type.Hurricane, MAG_LARGE);
+        addMagnification(Type.FIRE, Type.WATER, MAG_SMALL);
+        addMagnification(Type.FIRE, Type.HURRICANE, MAG_LARGE);
         // 水の攻撃
-        addMagnification(Type.Water, Type.Hurricane, MAG_SMALL);
-        addMagnification(Type.Water, Type.Fire, MAG_LARGE);
+        addMagnification(Type.WATER, Type.HURRICANE, MAG_SMALL);
+        addMagnification(Type.WATER, Type.FIRE, MAG_LARGE);
         // 風の攻撃
-        addMagnification(Type.Hurricane, Type.Fire, MAG_SMALL);
-        addMagnification(Type.Hurricane, Type.Water, MAG_LARGE);
+        addMagnification(Type.HURRICANE, Type.FIRE, MAG_SMALL);
+        addMagnification(Type.HURRICANE, Type.WATER, MAG_LARGE);
         // 光の攻撃
-        addMagnification(Type.Holy, Type.Dark, MAG_LARGE);
+        addMagnification(Type.HOLY, Type.DARK, MAG_LARGE);
         // 闇の攻撃
-        addMagnification(Type.Dark, Type.Holy, MAG_LARGE);
+        addMagnification(Type.DARK, Type.HOLY, MAG_LARGE);
     }
 
     private double getTypeMagnification(Type type) {
@@ -214,7 +214,7 @@ class Main {
     public static void main(String args[]) {
         Monster monster1 = new Monster(
             "ナンデヤ根",
-            Type.Hurricane,
+            Type.HURRICANE,
             new Skill[] {
                 Skill.get(3),
                 Skill.get(4),
@@ -224,7 +224,7 @@ class Main {
         );
         Monster monster2 = new Monster(
             "ヒト陽炎",
-            Type.Fire,
+            Type.FIRE,
             new Skill[] {
                 Skill.get(0),
                 Skill.get(1),

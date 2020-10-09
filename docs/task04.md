@@ -10,8 +10,8 @@
 上司：なるほど、ここが問題だね。
 ```
 ```java
-Skill skill1 = new Skill("999万ボルド", Type.Holy, 9990000, 10);
-Skill skill2 = new Skill("999万ボルド", Type.Holy, 10, 9990000);
+Skill skill1 = new Skill("999万ボルド", Type.HOLY, 9990000, 10);
+Skill skill2 = new Skill("999万ボルド", Type.HOLY, 10, 9990000);
 System.out.println(skill1 == skill2); // -> false、異なるオブジェクト
 ```
 ```

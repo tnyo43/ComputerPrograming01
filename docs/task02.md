@@ -19,7 +19,7 @@
 
 ## 課題
 
-- 今はタイプを文字列で表していますが、これだと同じタイプだとしても「火」「ファイヤー」「Fire」など、人によって表現が変わる可能性があるのでやっかいです。ここでは「Enum」型でタイプを表現しましょう
+- 今はタイプを文字列で表していますが、これだと同じタイプだとしても「火」「ファイヤー」「FIRE」など、人によって表現が変わる可能性があるのでやっかいです。ここでは「Enum」型でタイプを表現しましょう
     - Enum の定義は下を参考にしてください。
 - `Type` を定義したら、`Monster class` のタイプを `Type enum` に変更しましょう。それに伴う変更をして実行しましょう。
 - `display`を実行すると、パチモンのタイプが値の名前そのままで表示されますが、日本語で表示するようにしましょう。
@@ -42,19 +42,20 @@ Enum の定義と`toString`メソッドは以下を参考にしてください�
 
 ```java
 public enum Hoge {
-    Value1, Value2, Value3;
+    VALUE1, VALUE2, VALUE3;
 
     @Override
     public String toString() {
         switch (this) {
-            case Value1:
-                return "value1";
-            case Value2:
+            case VALUE1:
+                return "VALUE1";
+            case VALUE2:
                 return "値2";
-            case Value3:
+            case VALUE3:
                 return "ばりゅ〜さん";
+            default:
+                return "";
         }
-        return "";
     }
 }
 ```

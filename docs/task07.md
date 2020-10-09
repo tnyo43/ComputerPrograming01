@@ -64,43 +64,43 @@ private static final double MAG_SMALL = 0.7;
 
 private double getTypeMagnification(Type type) {
     switch (this.type) {
-        case Fire:
+        case FIRE:
             switch (type) {
-                case Hurricane:
+                case HURRICANE:
                     return MAG_LARGE;
-                case Water:
+                case WATER:
                     return MAG_SMALL;
                 default:
                     return MAG_MIDDLE;
             }
-        case Water:
+        case WATER:
             switch (type) {
-                case Fire:
+                case FIRE:
                     return MAG_LARGE;
-                case Hurricane:
+                case HURRICANE:
                     return MAG_SMALL;
                 default:
                     return MAG_MIDDLE;
             }
-        case Hurricane:
+        case HURRICANE:
             switch (type) {
-                case Water:
+                case WATER:
                     return MAG_LARGE;
-                case Fire:
+                case FIRE:
                     return MAG_SMALL;
                 default:
                     return MAG_MIDDLE;
             }
-        case Holy:
+        case HOLY:
             switch (type) {
-                case Dark:
+                case DARK:
                     return MAG_LARGE;
                 default:
                     return MAG_MIDDLE;
             }
-        case Dark:
+        case DARK:
             switch (type) {
-                case Holy:
+                case HOLY:
                     return MAG_LARGE;
                 default:
                     return MAG_MIDDLE;

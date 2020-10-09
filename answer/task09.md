@@ -41,18 +41,18 @@ public class Skill {
     private void initMagnificationMap() {
         magnificationMap = new HashMap<Pair<Type, Type>, Double>();
         // 火の攻撃
-        magnificationMap.put(new Pair<Type, Type>(Type.Fire, Type.Water), MAG_SMALL);
-        magnificationMap.put(new Pair<Type, Type>(Type.Fire, Type.Hurricane), MAG_LARGE);
+        magnificationMap.put(new Pair<Type, Type>(Type.FIRE, Type.WATER), MAG_SMALL);
+        magnificationMap.put(new Pair<Type, Type>(Type.FIRE, Type.HURRICANE), MAG_LARGE);
         // 水の攻撃
-        magnificationMap.put(new Pair<Type, Type>(Type.Water, Type.Hurricane), MAG_SMALL);
-        magnificationMap.put(new Pair<Type, Type>(Type.Water, Type.Fire), MAG_LARGE);
+        magnificationMap.put(new Pair<Type, Type>(Type.WATER, Type.HURRICANE), MAG_SMALL);
+        magnificationMap.put(new Pair<Type, Type>(Type.WATER, Type.FIRE), MAG_LARGE);
         // 風の攻撃
-        magnificationMap.put(new Pair<Type, Type>(Type.Hurricane, Type.Fire), MAG_SMALL);
-        magnificationMap.put(new Pair<Type, Type>(Type.Hurricane, Type.Water), MAG_LARGE);
+        magnificationMap.put(new Pair<Type, Type>(Type.HURRICANE, Type.FIRE), MAG_SMALL);
+        magnificationMap.put(new Pair<Type, Type>(Type.HURRICANE, Type.WATER), MAG_LARGE);
         // 光の攻撃
-        magnificationMap.put(new Pair<Type, Type>(Type.Holy, Type.Dark), MAG_LARGE);
+        magnificationMap.put(new Pair<Type, Type>(Type.HOLY, Type.DARK), MAG_LARGE);
         // 闇の攻撃
-        magnificationMap.put(new Pair<Type, Type>(Type.Dark, Type.Holy), MAG_LARGE);
+        magnificationMap.put(new Pair<Type, Type>(Type.DARK, Type.HOLY), MAG_LARGE);
     }
 
     private double getTypeMagnification(Type type) {
@@ -89,13 +89,13 @@ public class Skill {
     }
 
     private static Skill skills[] = {
-        new Skill("火を吐く", Type.Fire, 40, 5),
-        new Skill("灼熱フィスト", Type.Fire, 30, 20),
-        new Skill("みずふんしゃ", Type.Water, 1, 10),
-        new Skill("疾風パンチ", Type.Hurricane, 10, 30),
-        new Skill("かまいたちエルボー", Type.Hurricane, 20, 20),
-        new Skill("ボコボコキック", Type.Dark, 30, 10),
-        new Skill("乱反射", Type.Holy, 100, 1)
+        new Skill("火を吐く", Type.FIRE, 40, 5),
+        new Skill("灼熱フィスト", Type.FIRE, 30, 20),
+        new Skill("みずふんしゃ", Type.WATER, 1, 10),
+        new Skill("疾風パンチ", Type.HURRICANE, 10, 30),
+        new Skill("かまいたちエルボー", Type.HURRICANE, 20, 20),
+        new Skill("ボコボコキック", Type.DARK, 30, 10),
+        new Skill("乱反射", Type.HOLY, 100, 1)
     };
 }
 ```

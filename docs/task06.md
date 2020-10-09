@@ -10,7 +10,7 @@
 ```java
 Monster monster1 = new Monster(
     "ナンデヤ根",
-    Type.Hurricane,
+    Type.HURRICANE,
     new Skill[] {
         Skill.kickKickKick,     // 同じ技
     },
@@ -18,7 +18,7 @@ Monster monster1 = new Monster(
 );
 Monster monster2 = new Monster(
     "ヒト陽炎",
-    Type.Fire,
+    Type.FIRE,
     new Skill[] {
         Skill.kickKickKick,     // 同じ技
     },
