@@ -100,37 +100,35 @@ import util.Pair;
 public class Skill {
     ...
 
-    private static Map<Pair<Type, Type>, Double> magnificationMap;
-
+    private static Map<Pair<Type, Type>, Double> magnificationMap = initMagnificationMap();
 
     private Skill(String name, Type type, int power, int pp) {
         ...
-
-        if (magnificationMap == null) {
-            initMagnificationMap();
-        }
     }
 
     // magnificationMapの初期化のための補助関数
-    private void addMagnification(Type type1, Type type2, double mag) {
-        magnificationMap.put(new Pair<Type, Type>(type1, type2), mag);
+    private static void addMagnification(Map<Pair<Type, Type>, Double> m, Type type1, Type type2, double mag) {
+        m.put(new Pair<>(type1, type2), mag);
     }
 
-    private void initMagnificationMap() {
-        magnificationMap = new HashMap<Pair<Type, Type>, Double>();
+    private static Map<Pair<Type, Type>, Double> initMagnificationMap() {
+        Map<Pair<Type, Type>, Double> m = new HashMap<>();
         // 火の攻撃
-        addMagnification(Type.FIRE, Type.WATER, MAG_SMALL);
-        addMagnification(Type.FIRE, Type.HURRICANE, MAG_LARGE);
+
+        addMagnification(m, Type.FIRE, Type.WATER, MAG_SMALL);
+        addMagnification(m, Type.FIRE, Type.HURRICANE, MAG_LARGE);
         // 水の攻撃
-        addMagnification(Type.WATER, Type.HURRICANE, MAG_SMALL);
-        addMagnification(Type.WATER, Type.FIRE, MAG_LARGE);
+        addMagnification(m, Type.WATER, Type.HURRICANE, MAG_SMALL);
+        addMagnification(m, Type.WATER, Type.FIRE, MAG_LARGE);
         // 風の攻撃
-        addMagnification(Type.HURRICANE, Type.FIRE, MAG_SMALL);
-        addMagnification(Type.HURRICANE, Type.WATER, MAG_LARGE);
+        addMagnification(m, Type.HURRICANE, Type.FIRE, MAG_SMALL);
+        addMagnification(m, Type.HURRICANE, Type.WATER, MAG_LARGE);
         // 光の攻撃
-        addMagnification(Type.HOLY, Type.DARK, MAG_LARGE);
+        addMagnification(m, Type.HOLY, Type.DARK, MAG_LARGE);
         // 闇の攻撃
-        addMagnification(Type.DARK, Type.HOLY, MAG_LARGE);
+        addMagnification(m, Type.DARK, Type.HOLY, MAG_LARGE);
+
+        return m;
     }
 
     private double getTypeMagnification(Type type) {
@@ -143,4 +141,27 @@ public class Skill {
     }
 
     ...
+```
+
+## おまけ
+
+タイプの相性の計算は、気持ち的には switch 文を使って次のようにしたいと思うかもしれません。
+
+```java
+switch (new Pair<Type, Type>(this.type, type)) {
+    case (new Pair<FIRE, WATER>):
+        return ...
+}
+```
+
+残念ながらJava の switch 文 は int や enum　の比較はできても、 object の比較はできません。これは Java という言語の仕様上の都合です。
+
+たとえば、筆者の好きな OCaml という言語がありますが、パターンマッチングを用いて switch 文と同じように次のように書けたりします。使う言語の特性を知ると、より良い書き方（俗にいう○○らしい書き方）になり可読性や保守性があがります。
+
+```OCaml
+match (type1, type2) with
+  | (FIRE, WATER) -> MAG_SMALL
+  | (FIRE, HURRICANE) -> MAG_LARGE
+  ...
+  | _ -> MAG_MIDDLE
 ```
