@@ -53,9 +53,8 @@ public enum Hoge {
                 return "値2";
             case VALUE3:
                 return "ばりゅ〜さん";
-            default:
-                return "";
         }
+        return "";
     }
 }
 ```
